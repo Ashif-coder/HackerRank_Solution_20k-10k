@@ -104,7 +104,75 @@ if `k` is 2 and `arr` is `[4, 2, 3, 5, 1]`, the function will swap the two large
 13. This process continues until the BFS explores all possible paths or until the destination (cell 100) is reached.
 14. If there is no way to reach cell 100 after exploring all possible paths, the function returns -1, indicating that it's impossible to reach the destination.
 
+### Problem 7
 
 
+  - [Problem](https://www.hackerrank.com/challenges/bomber-man/problem)(navigate to the Problem)
+  - [Solution](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/bomberman_game) (navigate to the Solution file)
+  - Explanation:
+1. The bomb function is a helper function that takes an initial grid b, as well as the number of rows r and columns c. It creates a new field grid initialized with all 'O's.
+2. It iterates through the cells of the initial grid b. If a cell contains a bomb ('O'), it marks the corresponding cell in the field as an empty cell ('.'). It also checks the neighboring cells and marks them as empty as well, making sure the explosion affects the adjacent cells.
+3. The bomb function returns the field, which represents the state of the grid after the explosion.
+4. In the bomberMan function, the input grid is converted into a list of lists (b) for easier manipulation. It also calculates the number of rows (r) and columns (c) in the grid.
+5. If n is even, it means that the grid will be filled with bombs ('O') after every bombing cycle, and this is a repeating pattern. So, the function creates a grid f filled with bombs ('O') and returns it.
+6. If n is odd, it means the grid is not in a repeating pattern, so the function calculates the state of the grid after one or two bombing cycles based on the value of n.
+7. If n is 1, it returns the grid after a single bombing cycle.
+8. If n is such that (n + 1) % 4 == 0, it returns the grid after one bombing cycle.
+9. If n is such that (n + 2) % 4 == 0, it returns the grid after two bombing cycles.
+10. For all other values of n, it returns the grid after two bombing cycles. The logic behind this is that the grid follows a pattern where it returns to its original state after every 4 bombing cycles, and so we calculate the state based on the remainder of n when divided by 4.
+11. The function converts the final state of the grid back to a list of strings, where each string represents a row of the grid.
+12. the final state of the grid will be displayed, showing how the bombs explode and the grid changes over time.
+
+
+### Problem 8
+
+
+  - [Problem](https://www.hackerrank.com/challenges/sum-vs-xor/problem?isFullScreen=true)(navigate to the Problem)
+  - [Solution](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/XOR) (navigate to the Solution file)
+  - Explanation:
+1. Count the number of zeros in the binary representation of N. This is done using the bin(n) function, which converts N to its binary representation as a string, and then we count the occurrences of '0' in that string.
+2. Calculate the number of ways to choose X by raising 2 to the power of the count of zeros. This is because for each zero in the binary representation of N, we have two choices: either set the corresponding bit in X to 0 or 1.
+3. If N is 0, we have a special case where there's only one possible value of X, which is also 0. In this case, we return 1.
+4. For all other values of N, we return half of the ways_to_choose_x because for each possible X, there is another value of X that would yield the same result. So, we divide ways_to_choose_x by 2 to get the final count of values of X that satisfy the criteria.
+
+
+### Problem 9
+
+
+  - [Problem](https://www.hackerrank.com/challenges/jim-and-the-orders/problem)(navigate to the Problem)
+  - [Solution](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/jim%20and%20orders) (navigate to the Solution file)
+  - Explanation:
+1. The jimOrders function takes a list of orders as input, where each order is represented as a list containing the order time and preparation time. It initializes an empty list called delivery_times to store tuples containing customer numbers, delivery times, order times, and preparation times.
+2. For each order in the input list, it creates a tuple and appends it to the delivery_times list. Each tuple contains:
+  * The customer number, which is represented as i + 1 (since Python uses 0-based indexing, customer numbers start from 1).
+  * The delivery time, which is calculated by adding the order time and preparation time.
+  * The original order time.
+  * The original preparation time.
+3. The delivery_times list is sorted using the sort method. It's sorted based on two criteria:
+  * First, it sorts by delivery time (x[1] in the lambda function), ensuring that customers with the earliest delivery times come first.
+  * Second, it sorts by customer number (x[0] in the lambda function) to handle cases where multiple customers have the same delivery time. Sorting by customer       number in ascending order ensures that they are arranged in the order of their customer numbers.
+4. After sorting, the code extracts the customer numbers from the sorted delivery_times list and stores them in the delivery_order list.
+5. The function returns the delivery_order list, which represents the order in which customers receive their orders.
+
+
+### Problem 10
+
+
+  - [Problem](https://www.hackerrank.com/challenges/priyanka-and-toys/problem)(navigate to the Problem)
+  - [Solution](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/prinyanka%20and%20toys) (navigate to the Solution file)
+  - Explanation:
+Certainly, let's provide a more detailed explanation of the code and the efficient approach it follows to solve the problem of determining the minimum number of containers needed to ship items with specific weight constraints:
+
+1. The first step is to sort the array of item weights (`w`) in ascending order. Sorting helps in the efficient implementation of the algorithm, as it allows us to process the items in a systematic manner.
+2. The code initializes two variables:
+   * `container_count`: This variable keeps track of the number of containers needed to ship the items. It starts at 0, as no containers have been started yet.
+   * `min_weight_item`: This variable represents the minimum weight item in the current container. Initially, it is set to `None` as no items have been considered yet.
+3. The code then loops through the sorted array of item weights. For each item in the array, it performs the following steps:
+4. It checks whether the weight of the current item is less than or equal to 4 units plus the weight of the `min_weight_item`. This check ensures that the item can be added to the current container without violating the shipping company's requirement.
+5. If the current item can be added to the current container, it is included in that container, and the code continues to the next item. The `min_weight_item` remains the same.
+6. If the current item cannot be added to the current container (i.e., it violates the weight constraint), a new container is started. The `min_weight_item` is updated to the current item, and the `container_count` is incremented by 1 to account for the new container.
+7. The process continues for all items in the array, determining which items can be grouped into the same container based on the weight constraints.
+8. After processing all items, the code adds 1 to the `container_count` to account for the last container. This is because the loop doesn't increment `container_count` when processing the last item (there's no need to start a new container).
+9. Finally, the function returns the `container_count`, which represents the minimum number of containers required to ship all the items while adhering to the weight constraints.
 
 
