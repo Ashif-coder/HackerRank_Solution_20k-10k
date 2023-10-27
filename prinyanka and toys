@@ -1,0 +1,43 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'toys' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY w as parameter.
+#
+
+def toys(w):
+    w.sort()  
+    container_count = 0
+    min_weight_item = None
+
+    for weight in w:
+        if min_weight_item is None:
+            min_weight_item = weight
+
+        if weight > min_weight_item + 4:
+            container_count += 1
+            min_weight_item = weight
+
+    container_count += 1 
+    return container_count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    w = list(map(int, input().rstrip().split()))
+
+    result = toys(w)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
