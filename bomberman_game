@@ -1,0 +1,78 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'bomberMan' function below.
+#
+# The function is expected to return a STRING_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. STRING_ARRAY grid
+#
+
+def bomb(b, r, c):
+    field = [['O' for i in range(c)] for j in range(r)]
+    for i in range(r):
+        for j in range(c):
+            if b[i][j] == 'O':
+                field[i][j] = '.'
+                if i + 1 < r:
+                    field[i + 1][j] = '.'
+                if i > 0:
+                    field[i - 1][j] = '.'
+                if j + 1 < c:
+                    field[i][j + 1] = '.'
+                if j > 0:
+                    field[i][j - 1] = '.'
+    return field
+
+def bomberMan(n, grid):
+    r = len(grid)
+    c = len(grid[0])
+    b = [list(row) for row in grid]
+
+    if n % 2 == 0:
+        f = [['O' for i in range(c)] for j in range(r)]
+        return [''.join(map(str, f[i])) for i in range(r)]
+    else:
+        bombed1 = bomb(b, r, c)
+        bombed2 = bomb(bombed1, r, c)
+
+        if n == 1:
+            return [''.join(map(str, b[i])) for i in range(r)]
+        elif (n + 1) % 4 == 0:
+            return [''.join(map(str, bombed1[i])) for i in range(r)]
+        elif (n + 2) % 4 == 0:
+            return [''.join(map(str, b[i])) for i in range(r)]
+        else:
+            return [''.join(map(str, bombed2[i])) for i in range(r)]
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    first_multiple_input = input().rstrip().split()
+
+    r = int(first_multiple_input[0])
+
+    c = int(first_multiple_input[1])
+
+    n = int(first_multiple_input[2])
+
+    grid = []
+
+    for _ in range(r):
+        grid_item = input()
+        grid.append(grid_item)
+
+    result = bomberMan(n, grid)
+
+    fptr.write('\n'.join(result))
+    fptr.write('\n')
+
+    fptr.close()
