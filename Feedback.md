@@ -1,6 +1,7 @@
 # Feedback on Code Review
 
-[Solution](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/Max-Min) (navigate to the reviewed code)
+[Code](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/Max-Min) (navigate to the reviewed code)
+
 The feedback on the code review conducted by Amal regarding the "Max-Min" problem. I appreciate Amal's constructive feedback and have
 made the necessary corrections and improvements to the code. 
 
