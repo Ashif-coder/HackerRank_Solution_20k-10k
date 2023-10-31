@@ -175,4 +175,6 @@ Certainly, let's provide a more detailed explanation of the code and the efficie
 8. After processing all items, the code adds 1 to the `container_count` to account for the last container. This is because the loop doesn't increment `container_count` when processing the last item (there's no need to start a new container).
 9. Finally, the function returns the `container_count`, which represents the minimum number of containers required to ship all the items while adhering to the weight constraints.
 
+[Link to First 10 Solution](https://github.com/Ashif-coder/HackerRank_solutions) (navigate to the First 10 Solution file)
+
 
