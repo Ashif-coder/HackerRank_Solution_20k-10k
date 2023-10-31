@@ -2,10 +2,11 @@
 
 [Code](https://github.com/Ashif-coder/HackerRank_Solution_20k-10k/blob/main/Max-Min) (navigate to the reviewed code)
 
+## Feedback Summary
 The feedback on the code review conducted by Amal regarding the "Max-Min" problem. I appreciate Amal's constructive feedback and have
 made the necessary corrections and improvements to the code. 
 
-## Here is a summary of the feedback and the corresponding changes made:
+## Implementation:
 
     - Use of float('inf'): Amal recommended finding an alternative way to set the initial value for min_unfairness instead of using min_unfairness = float('inf').
        In response, I updated the code to use min_unfairness = arr[k - 1] - arr[0], which is a more memory-efficient way to initialize min_unfairness.
@@ -67,5 +68,10 @@ if __name__ == '__main__':
     fptr.close()
 
 ```
+## Contributors
 
-I appreciate Amal's input, and the code now incorporates these improvements to enhance its clarity and efficiency. I believe these changes have positively impacted the code quality and readability.
+Special thanks to Amal Shehu for providing valuable feedback, and special thanks to our mentor for their excellent coordination and for granting us the opportunity to engage in a discussion with an industry expert. Your guidance and insights have been greatly appreciated.
+
+## Impact
+
+These enhancements significantly improved my code's quality, making it more efficient and comprehensible.
